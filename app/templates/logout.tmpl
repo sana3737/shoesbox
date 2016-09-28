@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+{{ template "header" . }}
+<link rel="stylesheet" type="text/css" href="css/loginout.css">
+<body>
+    <div class="wrapper">
+    {{ template "global-navigator" . }}
+    <div class="content">
+    <div class="logItem">
+        <p>本当にlogoutしますか?</p>
+        <form action="/logout" method="POST">
+            {{ template "csrf-hidden" . }}
+            <input type="submit" value="はい">
+            <a href="/mypage"><input type="button" value="いいえ"></a>
+        </form>
+    </div>
+  </div>
+    {{ template "footer" .}}
+  </div>
+</body>
+</html>

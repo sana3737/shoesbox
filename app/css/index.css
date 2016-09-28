@@ -1,0 +1,27 @@
+@charset "UTF-8";
+.content ul{
+  list-style: none;
+}
+.main{
+    width: 75%;
+}
+.newItem li ,.RankItem li{
+  float: left;
+  width: 30%;
+}
+.listLink{
+  text-align: right;
+}
+.Items{
+  display: inline-block;
+}
+.bannar{
+  float: right;
+  width: 25%;
+}
+.bannar img{
+  width:95%;
+}
+.bannar ul:first-child{
+  padding-top: 30px;
+}

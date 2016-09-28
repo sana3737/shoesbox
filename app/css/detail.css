@@ -1,0 +1,37 @@
+@charset "UTF-8";
+.itemDetail{
+  margin-bottom: 20px;
+  width: 90%;
+  margin: 0 auto;
+}
+.itemDetail ul{
+  width: 90%;
+  margin: 0 auto;
+  list-style: none;
+}
+.itemDetail li{
+  width: 50%;
+  float:left;
+}
+.itemDetail li img{
+  width: 60%;
+}
+.rebutton{
+  text-align: center;
+  padding: 10px;
+}
+
+.rebutton a{
+  display: inline;
+  width: 50%;
+  padding: 10px;
+  border-radius:  25px;
+  background-color: #CC0000;
+  color: #fff;
+  text-decoration: none;
+  font-size: 1.3rem;
+}
+
+.rebutton:hover{
+  opacity: 0.8;
+}

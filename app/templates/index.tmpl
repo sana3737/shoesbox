@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+{{ template "header" . }}
+<link rel="stylesheet" type="text/css" href="css/index.css">
+<body>
+  <div class="wrapper">
+    {{ template "global-navigator" . }}
+    <div class="content cf">
+        <div class="topImage"><img src="images/site/topImage.png" width="100%"></div>
+        <div class="Items main">
+          <div class ="newItem">
+            <h2>新着アイテム</h2>
+            <ul class="cf">
+            {{range .items}}
+              <a href="/open/item/{{.Item_ID}}">
+                <li>
+                    <h3>{{.Title}}</h3>
+                    <img src="/images/{{.Image}}">
+                    <p>@{{.Name}}</p>
+                </li>
+              </a>
+            {{end}}
+          </ul>
+          <p class="listLink"><a href="/list">-アイテム一覧</a></p>
+          </div>
+          <div class ="RankItem">
+            <h2>いいねランキング</h2>
+            <ul class="cf">
+            {{range .rankItems}}
+                <a href="/open/item/{{.Item_ID}}">
+                  <li>
+                      <h3>{{.Title}}</h3>
+                      <p>{{.Point}}いいね!</p>
+                      <img src="/images/{{.Image}}">
+                      <p>@{{.Name}}</p>
+                  </li>
+                </a>
+            {{end}}
+          </ul>
+          <p class="listLink"><a href="/list">-アイテム一覧</a></p>
+          </div>
+      </div>
+      <div class="Items bannar">
+        <ul>
+          <li><img src="../images/site/banner1.jpg" ></li>
+          <li><img src="../images/site/banner2.jpg"></li>
+        </ul>
+      </div>
+    </div>
+    {{ template "footer" .}}
+  </div>
+</body>
+</html>

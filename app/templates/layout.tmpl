@@ -1,0 +1,61 @@
+{{ define "header" }}
+<head>
+    <meta charset="UTF-8">
+    <title>{{ .title }}</title>
+    <link rel="shortcut icon" href="images/ico/favicon.ico" />
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+</head>
+{{end}}
+
+{{ define "header1" }}
+<head>
+    <meta charset="UTF-8">
+    <title>{{ .title }}</title>
+    <link rel="shortcut icon" href="images/ico/favicon.ico" />
+    <link rel="stylesheet" type="text/css" href="../../css/style.css">
+</head>
+{{end}}
+
+{{ define "global-navigator" }}
+<header>
+  <img src="images/site/logo.png" width="20%" alt="タイトル">
+  <nav class="menu">
+    <a href="/">HOME</a> |
+    {{ if LoggedIn .context}}
+    <a href="/mypage">MYPAGE</a> |
+    <a href="/logout">LOG OUT</a> |
+    Hi, {{ CurrentName .context}}
+    {{else}}
+    <a href="/login">LOGIN</a> |
+    <a href="/signup">SIGNUP</a>
+    {{end}}
+  </nav>
+</header>
+{{end}}
+
+{{ define "global-navigator1" }}
+<header>
+  <img src="../../images/site/logo.png" width="20%" alt="タイトル">
+  <nav class="menu">
+    <a href="/">HOME</a> |
+    {{ if LoggedIn .context}}
+    <a href="/mypage">MYPAGE</a> |
+    <a href="/logout">LOG OUT</a> |
+    Hi, {{ CurrentName .context}}
+    {{else}}
+    <a href="/login">LOGIN</a>
+    <a href="/signup">SIGNUP</a>
+    {{end}}
+  </nav>
+</header>
+{{end}}
+
+{{ define "csrf-hidden" }}
+<input type="hidden" name="_csrf" value="{{.csrf}}">
+{{end}}
+
+{{ define "footer" }}
+<footer>
+    <p>Created by sana</p>
+</footer>
+{{end}}

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+{{ template "header" . }}
+<link rel="stylesheet" type="text/css" href="css/loginout.css">
+<body>
+    <div class="wrapper">
+    {{ template "global-navigator" . }}
+    <div class="content">
+      <h2>ユーザーログイン</h2>
+      <div class="logItem">
+          <form action="/login" method="POST">
+              {{ template "csrf-hidden" . }}
+              <label for="name">name</label>
+              <input type="text" name="name" value="">
+             <label for="password">password</label>
+              <input type="password" name="password" value="">
+              <input type="submit" value="login">
+          </form>
+      </div>
+    </div>
+    {{ template "footer" .}}
+  </div>
+</body>
+</html>

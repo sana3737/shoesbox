@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+{{ template "header" . }}
+<body>
+  <div class="wrapper">
+      {{ template "global-navigator" . }}
+      <div class="content">
+      <h2>新しいアイテム追加</h2>
+        <form action="/register" method="POST"  enctype="multipart/form-data">
+            {{ template "csrf-hidden" . }}
+            <div class="formItem">画像(必須)<input type="file" name="file" required></div>
+            <div class="formItem">タイトル(必須)<input type="text" name="title" value="{{.item.Title}}" required></div>
+            <div class="formItem">コメント(必須)<textarea id="" name="body" cols="30" rows="10"></textarea></div>
+            <div class="formItem"><input type="submit" value="登録する" class="submit_button"></div>
+        </form>
+      </div>
+      {{ template "footer" .}}
+    </div>
+</body>
+</html>

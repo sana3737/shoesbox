@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+{{ template "header" . }}
+<link rel="stylesheet" type="text/css" href="css/list.css">
+<link rel="stylesheet" type="text/css" href="css/mypage.css">
+<body>
+  <div class="wrapper">
+    {{ template "global-navigator" . }}
+    <div class="content cf">
+      <h2>MYPAGE</h2>
+        <p>MyItemを追加できます</p>
+        <ul>
+        {{range .items}}
+          <a href="/item/{{.ID}}">
+            <li>
+                <p>{{.Title}}</p>
+                <img src="/images/{{.Image}}">
+            </li>
+          </a>
+        {{end}}
+        <li class="addItem"><a href="/new">+新規追加</a></li>
+      </ul>
+    </div>
+    {{ template "footer" .}}
+  </div>
+</body>
+</html>

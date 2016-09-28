@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+{{ template "header1" . }}
+<body>
+  <div class="wrapper">
+      {{ template "global-navigator1" . }}
+      <div class="content">
+        <h2>アイテム変更</h2>
+        <article>
+              <form method="POST" action="/upload" enctype="multipart/form-data">
+                  {{ template "csrf-hidden" . }}
+                  <div class="formItem"><input type="hidden" name="id" value="{{.item.ID}}"></div>
+                  <div class="formItem">タイトル(必須)<input type="text" name="title" value="{{.item.Title}}" required></div>
+                  <div class="formItem">画像(必須)<input type="file" name="file"　 value="{{.item.Image}}" required></div>
+                  <div class="formItem">コメント(必須)<textarea id="" name="body" cols="30" rows="10">{{.item.Body}}</textarea></div>
+                  <div class="formItem"><input type="submit" value="アイテムを変更する" class="submit_button"></div>
+              </form>
+            <form action="/delete" method="POST">
+                {{ template "csrf-hidden" . }}
+              <div class="formItem"><input type="hidden" name="id" value="{{.item.ID}}"></div>
+              <div class="formItem"><input type="submit" value="アイテムを削除する" class="submit_button"></div>
+            </form>
+        </article>
+      </div>
+        {{ template "footer" .}}
+    </div>
+</body>
+</html>

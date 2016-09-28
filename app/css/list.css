@@ -1,0 +1,13 @@
+@charset "UTF-8";
+.content ul{
+  text-decoration: none;
+}
+.content li {
+  list-style: none;
+  float: left;
+  width:25%;
+  padding: 0 0 30px 0;
+}
+.content img{
+  width: 70%;
+}

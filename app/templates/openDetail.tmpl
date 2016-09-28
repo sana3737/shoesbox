@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+{{ template "header1" . }}
+<link rel="stylesheet" type="text/css" href="../../css/detail.css">
+<body>
+  <div class="wrapper">
+      {{ template "global-navigator1" . }}
+      <div class="content">
+        <h2>アイテム詳細</h2>
+        <div class="itemDetail">
+          <ul class="cf">
+            <li><img src="/images/{{ .item.Image}}"></li>
+            <li>{{ .item.Title }}</br>
+              {{ .item.Body }}</li>
+          </ul>
+      </div>
+    </div>
+    {{ template "footer" .}}
+  </div>
+</body>
+</html>

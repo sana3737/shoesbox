@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+{{ template "header" . }}
+<link rel="stylesheet" type="text/css" href="css/list.css">
+<body>
+  <div class="wrapper">
+    {{ template "global-navigator" . }}
+    <div class="content cf">
+        <ul>
+        {{$i := .csrf}}
+        {{$j :=LoggedIn .context}}
+        {{range .items}}
+        <a href="/open/item/{{.Item_ID}}">
+            <li>
+              <h3>{{.Title}}</h3>
+                <img src="/images/{{.Image}}">
+                <p>@{{.Name}}</p>
+                 <p>いいね数:{{.Point}}</p>
+                 <form method="POST" action="/point/{{.Item_ID}}">
+                 <input type="hidden" name="id" value="{{.Item_ID}}">
+                 <input type="hidden" name="point" value="{{.Point}}">
+                 <input type="hidden" name="_csrf" value="{{$i}}">
+                 {{ if $j}}
+                 <input type="submit" value="いいね" class="submit_button">
+                   {{else}}
+                 <p>いいねはログインしないと使えません</p>
+                     {{end}}
+                 </form>
+            </li>
+          </a>
+        {{end}}
+        </ul>
+        {{ if LoggedIn .context}}
+
+        {{else}}
+
+        {{end}}
+    </div>
+    {{ template "footer" .}}
+  </div>
+</body>
+</html>

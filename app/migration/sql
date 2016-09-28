@@ -1,0 +1,23 @@
+CREATE TABLE `items` (
+  `item_id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'ID',
+  `user_id` int(11) NOT NULL DEFAULT 0 COMMENT 'user_id',
+  `title` varchar(30) NOT NULL COMMENT 'title',
+  `body` text NOT NULL COMMENT 'body',
+  `image` text NOT NULL COMMENT 'text',
+  `point` int(11) NOT NULL  DEFAULT 0 COMMENT 'point',
+  `created` timestamp NOT NULL DEFAULT NOW() COMMENT 'when created',
+  `updated` DATETIME COMMENT 'when last updated',
+  PRIMARY KEY (`item_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='list of users';
+
+CREATE TABLE `users` (
+  `user_id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'ID',
+  `name` varchar(255) NOT NULL COMMENT 'name',
+  `email` varchar(255) NOT NULL COMMENT 'email',
+  `salt` varchar(255) NOT NULL COMMENT 'salt',
+  `salted` varchar(255) NOT NULL COMMENT 'salted password',
+  `created` timestamp NOT NULL DEFAULT NOW() COMMENT 'when created',
+  `updated` DATETIME COMMENT 'when last updated',
+  PRIMARY KEY (`user_id`),
+  UNIQUE KEY (`name`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='list of users';
